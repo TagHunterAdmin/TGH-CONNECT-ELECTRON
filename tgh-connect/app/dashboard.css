@@ -1,0 +1,299 @@
+*{
+  font-weight: 500;
+}
+body{
+  overflow: hidden;
+}
+
+/*
+ * Nav
+ */
+#nav_menu{
+  position: fixed;
+  z-index: 1000;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+}
+#nav-serialscrolling{
+  list-style-type: none;
+  padding: 0;
+}
+#nav-serialscrolling li{
+  padding: 10px 0;
+}
+.sub-link svg{
+  font-size: 30px;
+  color: grey;
+  cursor: pointer;
+}
+/*
+ * All pages
+ */
+ [data-serialscrolling-target] {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  min-height: 100vh;
+  padding: 50px;
+  font-size: 24px;;
+  text-align: center;
+  flex-direction: column;
+}
+/* Move down content because we have a fixed navbar that is 50px tall */
+/* body {
+  padding-top: 50px;
+} */
+
+.page {
+  position: relative;
+  width: 100%;
+  padding: 25px;
+  padding-left: 45px;
+  height: 100vh;
+  display: flex;
+  flex-direction: column;
+  justify-content: space-between;
+  align-items: center;
+}
+section{
+  width: 100%;
+  display: flex;
+  justify-content: space-around;
+  align-items: self-start;
+}
+
+/*
+ * Secondary pages
+ */
+/* .secondary_page{
+  display:none;
+  height: 100%;
+  width: 100%;
+  position: absolute;
+  z-index:1
+} */
+
+/*
+ * Other
+ */
+.connected{
+  color: green;
+}
+.error{
+  color: red !important;
+
+}
+/*
+* App Title section
+*/
+.app_title {
+  display: flex;
+  align-items: center;
+  justify-content: space-around;
+  flex-direction: column;
+}
+
+#connect_container{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-direction: column;
+  width: 100%;
+  height: 100%;
+}
+
+/****** Button effect *******/
+
+
+.connect_button {
+  /* width: 100px; */
+  border: 3px solid gray;
+  /* height: 100px; */
+  border-radius: 17px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  font-size: 36px;
+  cursor: pointer;
+  color: gray;
+}
+
+
+
+.holographic-card {
+  width: 100px;
+  height: 100px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: relative;
+  overflow: hidden;
+  border-radius: 15px;
+  transition: all 0.5s ease;
+}
+
+.holographic-card h2 {
+  color: #0ff;
+  font-size: 2rem;
+  position: relative;
+  z-index: 2;
+}
+
+.holographic-card::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(0deg,
+      transparent,
+      transparent 30%,
+      rgba(9, 255, 0, 0.3));
+  transform: rotate(-45deg);
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+
+.holographic-card:hover {
+  color: green;
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(9, 255, 0, 0.5);
+}
+
+.holographic-card:hover::before {
+  opacity: 1;
+  transform: rotate(-45deg) translateY(100%);
+}
+
+/****** Config Data *******/
+
+.config_data_container {
+
+}
+.config_data {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+}
+.config_data svg {
+  font-size: 28px;
+}
+
+/****** Errors container *******/
+#alerts{
+  position: fixed;
+  z-index: 1000;
+  top: 20px;
+  right: 20px;
+}
+.error_container{
+  display: none;
+}
+/****** Config page *******/
+#config_wrapper{
+  justify-content: flex-start;
+  margin: 0 10px;
+}
+#config_wrapper .config_container{
+  justify-content: flex-start;
+  flex-direction: column;
+}
+.form-label{
+  text-align: left;
+}
+
+#events_path_config{
+  text-align: left;
+  font-size: 15px;
+}
+/****** raw_data page *******/
+#raw_data{
+  justify-content: center;
+  
+}
+#raw_data .fa-spinner{
+  font-size: 50px;
+}
+#raw_data_folders{
+  display: flex;
+  justify-content: center;
+    width: 100%;
+}
+.raw_data_folder{
+  height: 100px;
+  width: 100px;
+  border: 2px solid gray;
+  border-radius: 15px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  position: relative;
+  overflow: hidden;
+  transition: all 0.5s ease;
+  margin: 20px;
+}
+.raw_data_folder::before {
+  content: '';
+  position: absolute;
+  top: -50%;
+  left: -50%;
+  width: 200%;
+  height: 200%;
+  background: linear-gradient(0deg,
+      transparent,
+      transparent 30%,
+      rgba(46, 45, 45, 0.3));
+  transform: rotate(-45deg);
+  transition: all 0.5s ease;
+  opacity: 0;
+}
+
+.raw_data_folder:hover {
+  color: rgba(46, 45, 45);
+  transform: scale(1.05);
+  box-shadow: 0 0 20px rgba(46, 45, 45, 0.5);
+}
+
+.raw_data_folder:hover::before {
+  opacity: 1;
+  transform: rotate(-45deg) translateY(100%);
+}
+
+#folder_games{
+  cursor: pointer;
+}
+#folder_games, #file_game{
+  display: none;
+  height: 100vh;
+  background: white;
+  position: absolute;
+  width: 100%;
+  padding: 50px;
+  text-align: left;
+}
+#file_game{
+  font-size: 14px;
+  overflow-y: auto;
+}
+.raw_data_file:hover{
+  color: gray;
+}
+
+.close{
+  position: absolute;
+  top: 10px;
+  right: 10px;
+  font-size: 30px;
+  cursor: pointer;
+  color: gray;
+}
+
+.close:hover{
+  color: black;
+}
+

@@ -1,0 +1,87 @@
+<!doctype html>
+<html>
+<head>
+<meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge,chrome=1">
+<meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+<title>jQuery serialscrolling: One Page Scroll Nav Example</title>
+<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<style>
+  html,* { font-family: 'Inter'; box-sizing: border-box; margin: 0; padding: 0; }
+body { background-color: #222; line-height:1.6; color: #fff;}
+ul, ol{list-style:none;}
+.lead { font-size: 1.5rem; font-weight: 300; }
+.container { margin: 150px auto; max-width: 960px; }
+/* Demo styles */
+  #nav-serialscrolling{position:sticky;top:50%;left:50px;width:250px;margin-left:-250px;float:left;}
+  #nav-serialscrolling .sub-link{position:relative;display:block;padding:10px;font-size:13px;cursor:pointer;opacity:0.5;transition:300ms;}
+  #nav-serialscrolling .sub-link:hover, #nav-serialscrolling .sub-link.is-current{opacity:1;}
+  #nav-serialscrolling .sub-link:before, #nav-serialscrolling .sub-link:after{content:'';position:absolute;top:50%;transform:translateY(-50%);border-radius:100%;transition:300ms;}
+  #nav-serialscrolling .sub-link:before{left:-30px;width:16px;height:16px;border:1px solid rgba(255, 255, 255, .2);}
+  #nav-serialscrolling .sub-link:after{left:-23px;width:5px;height:5px;background-color:#b41c28;opacity:0;}
+  #nav-serialscrolling .sub-link.is-current:before{border-color:rgba(255, 255, 255, .4);}
+  #nav-serialscrolling .sub-link.is-current:after{opacity:1;background-color:}
+  [data-serialscrolling-target]{display:flex;justify-content:center;align-items:center;min-height:100vh;padding:50px;background-color:rgba(255, 255, 255, .05);color:rgba(255, 255, 255, .25);font-size:24px;font-style:italic;text-align:center; flex-direction: column;}
+</style>
+<link href="https://www.jqueryscript.net/css/jquerysctipttop.css" rel="stylesheet" type="text/css">
+<link rel="stylesheet" href="dist/jquery.serialtabs.css" />
+</head>
+
+<body>
+ <ul id="nav-serialscrolling">
+    <li><span class="sub-link" data-serialscrolling="home">Home</span></li>
+    <li><span class="sub-link" data-serialscrolling="work">Work</span></li>
+    <li><span class="sub-link" data-serialscrolling="team">Team</span></li>
+  </ul>
+
+  <div data-serialscrolling-target="home"><h1>jQuery serialscrolling</h1><div id="carbon-block" style="margin:20px"></div>
+<div style="margin:20px"><script async src="https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js?client=ca-pub-2783044520727903"
+     crossorigin="anonymous"></script>
+<!-- jQuery_demo -->
+<ins class="adsbygoogle"
+     style="display:inline-block;width:728px;height:90px"
+     data-ad-client="ca-pub-2783044520727903"
+     data-ad-slot="2780937993"></ins>
+<script>
+     (adsbygoogle = window.adsbygoogle || []).push({});
+</script></div><p class="lead">One Page Scroll Nav Example</p></div>
+  <div data-serialscrolling-target="work">Section 2</div>
+  <div data-serialscrolling-target="team">Section 3</div>
+<script src="https://code.jquery.com/jquery-3.6.0.min.js"></script>
+<script src="dist/jquery.serialscrolling.js"></script>
+<script>
+  $(document).ready(function(){
+    // jquery.serialscrolling initialisation
+    $('[data-serialscrolling]').serialscrolling();
+  });
+  </script>
+  <script type="text/javascript">
+
+  var _gaq = _gaq || [];
+  _gaq.push(['_setAccount', 'UA-36251023-1']);
+  _gaq.push(['_setDomainName', 'jqueryscript.net']);
+  _gaq.push(['_trackPageview']);
+
+  (function() {
+    var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+    ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+    var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+  })();
+
+</script>
+<script>
+try {
+  fetch(new Request("https://pagead2.googlesyndication.com/pagead/js/adsbygoogle.js", { method: 'HEAD', mode: 'no-cors' })).then(function(response) {
+    return true;
+  }).catch(function(e) {
+    var carbonScript = document.createElement("script");
+    carbonScript.src = "//cdn.carbonads.com/carbon.js?serve=CK7DKKQU&placement=wwwjqueryscriptnet";
+    carbonScript.id = "_carbonads_js";
+    document.getElementById("carbon-block").appendChild(carbonScript);
+  });
+} catch (error) {
+  console.log(error);
+}
+</script>
+</body>
+</html>

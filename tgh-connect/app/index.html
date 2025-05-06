@@ -1,0 +1,155 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="utf-8">
+  <meta http-equiv="Content-Security-Policy" content="script-src 'self'">
+  <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+  <meta name="description" content="">
+  <meta name="author" content="">
+  <link rel="stylesheet" href="../node_modules/bootstrap/dist/css/bootstrap.min.css">
+  <link rel="stylesheet" href="dashboard.css">
+  <title>TagHunter Connect</title>
+</head>
+
+<body>
+  <input type="hidden" id="device_uniq" value="">
+  <input type="hidden" id="launched_game_id" value="">
+  <input type="hidden" id="launched_game_title" value="">
+  <input type="hidden" id="user_email" value="">
+  <input type="hidden" id="events_path" value="">
+  <header>
+    <!-- <nav class="navbar navbar-expand-md navbar-dark fixed-top bg-dark">
+      <a class="navbar-brand" href="#">Dashboard</a>
+      <button class="navbar-toggler d-lg-none" type="button" data-toggle="collapse" data-target="#navbarsExampleDefault" aria-controls="navbarsExampleDefault" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+      </button>
+
+      <div class="collapse navbar-collapse" id="navbarsExampleDefault">
+        <ul class="navbar-nav mr-auto">
+          <li class="nav-item active">
+            <a class="nav-link" href="#">Home <span class="sr-only">(current)</span></a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Settings</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Profile</a>
+          </li>
+          <li class="nav-item">
+            <a class="nav-link" href="#">Help</a>
+          </li>
+        </ul>
+        <form class="form-inline mt-2 mt-md-0">
+          <input class="form-control mr-sm-2" type="text" placeholder="Search" aria-label="Search">
+          <button class="btn btn-outline-success my-2 my-sm-0" type="submit">Search</button>
+        </form>
+      </div>
+    </nav> -->
+  </header>
+
+  <div class="container-fluid">
+
+    <div id="nav_menu">
+      <ul id="nav-serialscrolling">
+        <li><span class="sub-link" data-serialscrolling="home"><i class="fa-solid fa-home"></i></li>
+        <li><span class="sub-link" id="config_link" data-serialscrolling="config"><i class="fa-solid fa-gear"></i></li>
+        <li><span class="sub-link" data-serialscrolling="help"><i class="fa-regular fa-circle-question"></i></li>
+        <li id="raw_data_link"><span class="sub-link" data-serialscrolling="raw_data"><i id="raw_data_link"
+              class="fa-solid fa-database"></i></li>
+      </ul>
+    </div>
+    <div data-serialscrolling-target="home" class="page">
+      <section class="app_title">
+        <h1>Se connecter au serveur local</h1>
+        <p id="device_uniq_p">Vous êtes sur le poste <span id="device_uniq_span"></span><span id="device_name_span"></span></p>
+      </section>
+      <section id="connect_container">
+        <div id="connect_button" class="connect_button holographic-card"><i class="fa-solid fa-gamepad"></i><i
+            style="display:none" class="fa-solid fa-spinner fa-spin"></i></div>
+        <div id="loading_verbose"></div>
+      </section>
+      <section class="config_data_container">
+        <div id="wifi_data" class="config_data" data-bs-toggle="tooltip" data-bs-placement="top"
+          data-bs-title="Votre connection au réseau wifi Tag Hunter">
+          <i id="wifi_data_icon" class="fa-solid fa-wifi"></i>
+          <div id="wifi_data_verbose" class="config_data_verbose">
+
+          </div>
+        </div>
+        <div id="server_data" class="config_data" data-bs-toggle="tooltip" data-bs-placement="top"
+          data-bs-title="Votre connection au serveur raspberry Tag Hunter">
+          <i class="fa-solid fa-server"></i>
+          <div id="server_data_verbose" class="config_data_verbose">
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div data-serialscrolling-target="config" id="config_wrapper" class="page ">
+      <section class="app_title">
+        <h1>Configuration</h1>
+      </section>
+
+      <section class="config_container">
+
+        <h2>Configuration</h2>
+        <div class="row mb-3">
+          <div class="col-auto">
+            <label for="user_email_form" >Votre identifiant TagHunter</label>
+          </div>
+          <div class="col-auto">
+            <input type="email" class="form-control" id="user_email_form" placeholder="contact@taghunter.fr">
+          </div>
+          <div class="col-auto">
+            <button id="submit_user_email" class="btn btn-primary mb-3">Valider</button>
+          </div>
+        </div>
+        <div class=" row mb-3">
+          <label for="events_path" class="form-label">Chemin d'accès au fichier events.csv</label>
+          <p id="events_path_config"></p>
+        </div>
+        <div class=" row mb-3">
+          <div class="col-auto">
+            <label for="device_name_iput" >Poste</label>
+          </div>
+          <div class="col-auto">
+            <input type="text" class="form-control" id="device_name_iput" placeholder="ex: Poste 1">
+          </div>
+          <div class="col-auto">
+            <button id="save_device" class="btn btn-primary mb-3">Enregistrer le poste sur le serveur</button>
+          </div>
+        </div>
+      </section>
+    </div>
+    <div data-serialscrolling-target="help" id="help_wrapper" class="page">
+      qsdqsd
+    </div>
+    <div data-serialscrolling-target="raw_data" id="raw_data" class="page">
+      <div id="raw_data_folders"></div>
+      <div id="folder_games" data-folder="">
+        <div data-close-target="folder_games" class="close"><i class="fa-solid fa-xmark"></i></div>
+        <div id="folder_games_content"></div>
+      </div>
+      <div id="file_game">
+        <div data-close-target="file_game" class="close"><i class="fa-solid fa-xmark"></i></div>
+        <div id="file_game_content"></div>
+      </div>
+      <i class="fa-solid fa-spinner fa-spin"></i>
+    </div>
+
+
+
+    <div id="alerts">
+    </div>
+
+  </div>
+</body>
+<script src="../node_modules/jquery/dist/jquery.min.js"></script>
+<script src="../node_modules/bootstrap/dist/js/bootstrap.bundle.min.js"></script>
+<script src="renderer.js"></script>
+<script src="includes/one-page-scroll-nav-serial/dist/jquery.serialscrolling.js"></script>
+<script src="script.js"></script>
+<script type="module" src="../node_modules/@fortawesome/fontawesome-free/js/all.js"></script>
+
+</html>
