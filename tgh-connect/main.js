@@ -13,8 +13,15 @@ const fs = require('fs');
 const readline = require('readline');
 var parse = require('csv-parse')
 const computerName = os.hostname()
-const { updateElectronApp } = require('update-electron-app')
-updateElectronApp()
+const { updateElectronApp, UpdateSourceType } = require('update-electron-app')
+updateElectronApp({
+  updateSource: {
+    type: UpdateSourceType.ElectronPublicUpdateService,
+    repo: 'TagHunterAdmin/TGH-CONNECT-ELECTRON'
+  },
+  updateInterval: '1 hour',
+  logger: require('electron-log')
+})
 app.setName(config.productName)
 var mainWindow = null
 
