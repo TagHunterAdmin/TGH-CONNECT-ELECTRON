@@ -1,8 +1,8 @@
 {
   "name": "tgh-connect",
   "productName": "tgh-connect",
-  "version": "1.0.0",
-  "description": "My Electron application description",
+  "version": "2.0.0",
+  "description": "New version of Tag Hunter Connect. More robust, more reliable, and more features.",
   "main": "main.js",
   "scripts": {
     "start": "electron-forge start",
@@ -19,6 +19,7 @@
     "@electron-forge/maker-zip": "^7.6.0",
     "@electron-forge/plugin-auto-unpack-natives": "^7.6.0",
     "@electron-forge/plugin-fuses": "^7.6.0",
+    "@electron-forge/publisher-github": "^7.8.0",
     "@electron/fuses": "^1.8.0",
     "electron": "35.2.1"
   },
@@ -32,6 +33,7 @@
     "@fortawesome/fontawesome-free": "^6.7.2",
     "bootstrap": "^5.3.5",
     "csv": "^6.3.11",
+    "electron-builder": "^26.0.12",
     "electron-log": "^5.4.0",
     "electron-squirrel-startup": "^1.0.1",
     "jquery": "^3.7.1",
